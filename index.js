@@ -7,6 +7,7 @@ import userRoutes from "./src/modules/auth/auth.routes.js"
 import { config } from 'dotenv'
 
 import path from 'path'
+import blogroutes from "./src/modules/Blogs/blogs.routes.js"
 
 config({path: path.resolve('./config/.env')})
 
@@ -18,12 +19,13 @@ app.use(express.json())
 
 connectDB()
 
+app.get("/",(req, res) => res.send('Backend is Working 🍌'))
 
 app.use('/users',userRoutes)
+app.use('/blogs',blogroutes)
 
 
 
-app.get("/",(req, res) => res.send('Backend is Working 🍌'))
 
 app.use("*",(req,res,next)=>{
    next(new CustomError("URL not found",404))

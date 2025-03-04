@@ -21,10 +21,6 @@ const blogSchema = Schema({
         },
     },
     customId:String,
-    createdAt: {
-        type: Date,
-        default: Date.now
-    }
     //   author: {
     //     type: Schema.Types.ObjectId,
     //     required: false,
